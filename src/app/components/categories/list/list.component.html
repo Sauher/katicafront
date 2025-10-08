@@ -5,12 +5,22 @@
     <thead>
         <tr>
             <th>#</th>
-            <th colspan="7">Kategórianév</th>
+            <th class="text-center">Kategórianév</th>
+            <th class="text-end">Műveletek</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
+        <tr *ngFor="let category of categories; index as i;">
+            <td >{{i+1}}.</td>
+            <td class="text-center"> {{category.kategoriaNev}}</td>
+            <td class="text-end">
+                <button type="button" class="btn btn-warning btn-sm mx-2"><i class="bi bi-pencil"></i></button>
+                <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i></button>
+            </td>
+        </tr>
+
     </tbody>
     <tfoot>
-        <th colspan="8" class="text-center">Összesen: <span>0</span> rekord</th>
+        <th colspan="3" class="text-center">Összesen: <span>0</span> rekord</th>
     </tfoot>
   </table>
