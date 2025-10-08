@@ -14,5 +14,7 @@ import { StatComponent } from './components/stat/stat.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'katicafront';
+  appTitle = 'Mango Mustard Büfé App';
+  company = 'Bajai SZC Türr István Technikum';
+  author = '13.A Szoftverfejlesztő';
 }

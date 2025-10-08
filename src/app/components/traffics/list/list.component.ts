@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+  import { Component } from '@angular/core';
+  import { RouterModule } from '@angular/router';
 
-@Component({
-  selector: 'app-traf-list',
-  standalone: true,
-  imports: [RouterModule],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
-})
-export class ListTrafComponent {
+  @Component({
+    selector: 'app-traf-list',
+    standalone: true,
+    imports: [RouterModule],
+    templateUrl: './list.component.html',
+    styleUrl: './list.component.scss'
+  })
+  export class ListTrafComponent {
 
-}
+  }
