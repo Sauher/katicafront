@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import axios, { AxiosError } from 'axios'
 import { Category } from '../../../interfaces/categories';
+import { APIService } from '../../../services/api.service';
+import { apires } from '../../../interfaces/response';
 
 
 
@@ -16,17 +17,18 @@ import { Category } from '../../../interfaces/categories';
 
 export class ListCatComponent implements OnInit{
   categories: Category[] = []
+  constructor(private api : APIService){}
 
    async ngOnInit() {
-    try{
-      const res = await axios.get('http://localhost:3000/categories')
-    this.categories = res.data
-    console.log(this.categories)
-    }
-    catch (err : any){
-      console.log(err.message)
-      alert('Hiba történt az adatok betöltésekor!')
-    }
+this.api.SelectAll("categories").then((res:apires) => {
+        if(res.status == 200){
+          this.categories = res.data
+        }
+        else{
+          alert(res.message)
+        }
+        
+      })
     
   }
 }

@@ -1,8 +1,9 @@
   import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
   import { RouterModule } from '@angular/router';
-  import axios, { AxiosError } from 'axios'
 import { Traffic } from '../../../interfaces/traffics';
+import { APIService } from '../../../services/api.service';
+import { apires } from '../../../interfaces/response';
 
 
   @Component({
@@ -15,16 +16,17 @@ import { Traffic } from '../../../interfaces/traffics';
   export class ListTrafComponent {
     traffics: Traffic[] = []
 
+    constructor(private api : APIService){}
+
     async ngOnInit() {
-     try{
-       const res = await axios.get('http://localhost:3000/traffics')
-     this.traffics = res.data
-     console.log(this.traffics)
-     }
-     catch (err : any){
-       console.log(err.message)
-       alert('Hiba történt az adatok betöltésekor!')
-     }
-     
+      this.api.SelectAll("traffics").then((res:apires) => {
+        if(res.status == 200){
+          this.traffics = res.data
+        }
+        else{
+          alert(res.message)
+        }
+        
+      })
    }
   }
