@@ -31,4 +31,7 @@ this.api.SelectAll("categories").then((res:apires) => {
       })
     
   }
+  async Delete(asd : number){
+    await this.api.Delete("categories", asd)
+   }
 }
