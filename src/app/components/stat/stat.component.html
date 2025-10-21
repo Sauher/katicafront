@@ -1,2 +1,29 @@
 <h3>Statisztika</h3>
 <hr>
+<table class="mb-3 mt-5 table table-hover table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Vevőszám</th>
+            <th class="text-center">Termékszám</th>
+            <th class="text-center">Eladások száma</th>
+            <th class="text-center">Bevétel</th>
+        </tr>
+    </thead>
+        <tbody class="table-group-divider">
+            <tr>
+            <td class="text-center" > {{stats?.usersCount}}</td>
+                <td class="text-center" > {{stats?.productsCount}}</td>
+                <td class="text-center" > {{stats?.salesSum}}</td>
+                <td class="text-center" > {{stats?.priceSum}} Ft</td>
+            </tr>
+            <tr class="table-group-divider">    
+            <th class="text-center table-group-divider" colspan="4">Eladott termékek</th>
+        </tr>
+            <tr  *ngFor="let soldproduct of stats?.products;let i = index">
+                
+                <td class="text-center" colspan="4">{{soldproduct.termek}} {{soldproduct.count}}  {{soldproduct.price}}</td>
+                
+            </tr>
+            
+        </tbody>
+  </table>

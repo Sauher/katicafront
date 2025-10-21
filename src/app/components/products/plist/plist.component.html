@@ -5,16 +5,29 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Termék név</th>
-            <th>Ár</th>
-            <th>Kategória</th>
-            <th>Egység</th>
+            <th class="text-center">Termék</th>
+            <th class="text-center">Kategória</th>
+            <th class="text-center">Nettó ár</th>
+            <th class="text-center">Egység</th>
+            <th class="text-end">Múveletek</th>
         </tr>
     </thead>
-    <tbody>
-    </tbody>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let product of products; index as i;">
+                <td >{{i+1}}.</td>
+                <td class="text-center"> {{product.termek}}</td>
+                <td class="text-center"> {{product.kategoriaNev}}</td>
+                <td class="text-center"> {{product.nettoAr}}</td>
+                <td class="text-center"> {{product.egyseg}}</td>
+                <td class="text-end">
+                    <button type="button" class="btn btn-warning btn-sm mx-2" (click)="Update(product.id)"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="Delete(product.id)"><i class="bi bi-trash3"></i></button>
+                </td>
+            </tr>
+    
+        </tbody>
     <tfoot>
-        <th colspan="8" class="text-center">Összesen: <span>0</span> rekord</th>
+        <th colspan="8" class="text-center">Összesen: <span>{{products.length}}</span> rekord</th>
     </tfoot>
   </table>
 

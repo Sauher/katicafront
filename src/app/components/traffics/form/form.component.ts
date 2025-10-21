@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { APIService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-tform',
@@ -10,4 +11,8 @@ import { RouterModule } from '@angular/router';
 })
 export class TFormComponent {
 
+  constructor(private api : APIService){}
+  Push(){
+    
+  }
 }

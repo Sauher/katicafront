@@ -22,11 +22,17 @@ import { apires } from '../../../interfaces/response';
       this.api.SelectAll("traffics").then((res:apires) => {
         if(res.status == 200){
           this.traffics = res.data
+          console.log(this.traffics)
         }
         else{
           alert(res.message)
         }
         
       })
+   }
+   async Delete(asd : number){
+    await this.api.Delete("traffics", asd)
+   }
+   Update(index:number){
    }
   }
